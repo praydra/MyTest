@@ -17,6 +17,11 @@ def divide(a, b):
         return "Error: Cannot divide by zero."
     return a / b
 
+def power(a, b):
+    return a ** b
+
+def mod(a, b):
+    return a % b
 
 # 테스트 코드
 if __name__ == '__main__':
@@ -27,3 +32,5 @@ if __name__ == '__main__':
     print(f"빼기: {a} - {b} = {subtract(a, b)}")
     print(f"곱하기: {a} * {b} = {multiply(a, b)}")
     print(f"나누기: {a} / {b} = {divide(a, b)}")
+    print(f"제곱근: {a} ** {b} = {power(a, b)}")
+    print(f"나머지: {a} % {b} = {mod(a, b)}")
