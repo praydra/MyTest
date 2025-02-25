@@ -1,36 +1,45 @@
-# 사칙연산 함수 정의
+# 사칙연산 클래스 정의
+class ArithmeticOperations:
+    DIVISION_BY_ZERO_ERROR = "Error: Cannot divide by zero."  # 상수로 에러 메시지 정의
 
-def add(a, b):
-    return a + b
+    @classmethod
+    def calculate_add(cls, a, b):
+        return a + b
 
+    @classmethod
+    def calculate_subtract(cls, a, b):
+        return a - b
 
-def subtract(a, b):
-    return a - b
+    @classmethod
+    def calculate_multiply(cls, a, b):
+        return a * b
 
+    @classmethod
+    def calculate_divide(cls, a, b):
+        if b == 0:
+            return cls.DIVISION_BY_ZERO_ERROR
+        return a / b
 
-def multiply(a, b):
-    return a * b
+    @classmethod
+    def calculate_power(cls, a, b):
+        return a ** b
 
+    @classmethod
+    def calculate_mod(cls, a, b):
+        return a % b
 
-def divide(a, b):
-    if b == 0:
-        return "Error: Cannot divide by zero."
-    return a / b
-
-def power(a, b):
-    return a ** b
-
-def mod(a, b):
-    return a % b
 
 # 테스트 코드
 if __name__ == '__main__':
-    a = 5
-    b = 7
+    a, b = 5, 7
+    operations = [
+        ("더하기", ArithmeticOperations.calculate_add),
+        ("빼기", ArithmeticOperations.calculate_subtract),
+        ("곱하기", ArithmeticOperations.calculate_multiply),
+        ("나누기", ArithmeticOperations.calculate_divide),
+        ("제곱근", ArithmeticOperations.calculate_power),
+        ("나머지", ArithmeticOperations.calculate_mod),
+    ]
 
-    print(f"더하기: {a} + {b} = {add(a, b)}")
-    print(f"빼기: {a} - {b} = {subtract(a, b)}")
-    print(f"곱하기: {a} * {b} = {multiply(a, b)}")
-    print(f"나누기: {a} / {b} = {divide(a, b)}")
-    print(f"제곱근: {a} ** {b} = {power(a, b)}")
-    print(f"나머지: {a} % {b} = {mod(a, b)}")
+    for name, operation in operations:
+        print(f"{name}: {a}, {b} = {operation(a, b)}")
