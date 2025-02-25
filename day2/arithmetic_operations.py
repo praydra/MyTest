@@ -31,7 +31,8 @@ class ArithmeticOperations:
 
 # 테스트 코드
 if __name__ == '__main__':
-    a, b = 5, 7
+    a = 5
+    b = 7
     operations = [
         ("더하기", ArithmeticOperations.calculate_add),
         ("빼기", ArithmeticOperations.calculate_subtract),
